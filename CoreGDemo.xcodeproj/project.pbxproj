@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67AB059119D07DD000F6FD20 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 67AB059019D07DD000F6FD20 /* 1.png */; };
 		67D8DB9119CFB58500DC7548 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D8DB9019CFB58500DC7548 /* Foundation.framework */; };
 		67D8DB9319CFB58500DC7548 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D8DB9219CFB58500DC7548 /* CoreGraphics.framework */; };
 		67D8DB9519CFB58500DC7548 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D8DB9419CFB58500DC7548 /* UIKit.framework */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		67AB059019D07DD000F6FD20 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		67D8DB8D19CFB58500DC7548 /* CoreGDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreGDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67D8DB9019CFB58500DC7548 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		67D8DB9219CFB58500DC7548 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -128,6 +130,7 @@
 		67D8DB9719CFB58500DC7548 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				67AB059019D07DD000F6FD20 /* 1.png */,
 				67D8DB9819CFB58500DC7548 /* CoreGDemo-Info.plist */,
 				67D8DB9919CFB58500DC7548 /* InfoPlist.strings */,
 				67D8DB9C19CFB58500DC7548 /* main.m */,
@@ -229,6 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67AB059119D07DD000F6FD20 /* 1.png in Resources */,
 				67D8DB9B19CFB58500DC7548 /* InfoPlist.strings in Resources */,
 				67D8DBA319CFB58500DC7548 /* Images.xcassets in Resources */,
 			);
@@ -449,6 +453,7 @@
 				67D8DBBB19CFB58500DC7548 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		67D8DBBC19CFB58500DC7548 /* Build configuration list for PBXNativeTarget "CoreGDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -457,6 +462,7 @@
 				67D8DBBE19CFB58500DC7548 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

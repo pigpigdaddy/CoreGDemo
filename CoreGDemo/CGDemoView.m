@@ -25,13 +25,78 @@
     // 获取绘图上下文
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    CGContextAddArc(context, 160, 160, 100.0, 0.0, M_PI_2, 1);
+    UIImage *image=[UIImage imageNamed:@"1.png"];
+    //从某一点开始绘制
+//    [image drawAtPoint:CGPointMake(10, 50)];
+    //绘制到指定的矩形中，注意如果大小不合适会会进行拉伸
+//    [image drawInRect:CGRectMake(10, 50, 300, 400)];
+    //平铺绘制
+//    [image drawAsPatternInRect:CGRectMake(0, 0, 320, 568)];
     
-    //设置属性
-    [[UIColor yellowColor]set];
+//    // 绘制的文本内容
+//    NSString *str=@"Quartz 2D is an advanced, two-dimensional drawing engine available for iOS application development and to all Mac OS X application environments outside of the kernel. Quartz 2D provides low-level, lightweight 2D rendering with unmatched output fidelity regardless of display or printing device. Quartz 2D is resolution- and device-independent; you don’t need to think about the final destination when you use the Quartz 2D application programming interface (API) for drawing.";
+//    CGRect myRect= CGRectMake(20, 50, 280, 300);
+//    // 设置字体
+//    UIFont *font=[UIFont systemFontOfSize:18];
+//    // 字体颜色
+//    UIColor *color=[UIColor blueColor];
+//    // 段落样式
+//    NSMutableParagraphStyle *style=[[NSMutableParagraphStyle alloc]init];
+//    // 对齐方式
+//    style.alignment=NSTextAlignmentLeft;
+//    [str drawInRect:myRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:color,NSParagraphStyleAttributeName:style}];
     
-    //绘制
-    CGContextDrawPath(context, kCGPathFillStroke);
+//    // 初始位置端点
+//    CGContextMoveToPoint(context, 20, 100);
+//    
+//    // 二次贝塞尔曲线
+//    // cpx:控制点x坐标
+//    // cpy:控制点y坐标
+//    // 结束点x坐标
+//    // 结束点y坐标
+//    CGContextAddQuadCurveToPoint(context, 160, 0, 300, 100);
+//    
+//    CGContextMoveToPoint(context, 20, 400);
+//    
+//    // 三次贝塞尔曲线
+//    // cp1x:第一个控制点x坐标
+//    // cp1y:第一个控制点y坐标
+//    // cp2x:第二个控制点x坐标
+//    // cp2y:第二个控制点y坐标
+//    // x:结束点x坐标
+//    // y:结束点y坐标
+//    CGContextAddCurveToPoint(context, 80, 300, 240, 500, 300, 300);
+//    
+//    //设置图形上下文属性
+//    [[UIColor blueColor]setFill];
+//    [[UIColor redColor]setStroke];
+//    
+//    //绘制路径
+//    CGContextDrawPath(context, kCGPathFillStroke);
+    
+//    // 从左到右除了绘图上下文以外的参数说明
+//    // x:中心点x坐标
+//    // y:中心点y坐标
+//    // radius:半径
+//    // startAngle:起始弧度
+//    // endAngle:终止弧度
+//    // closewise:是否逆时针绘制，1则顺时针绘制，0则逆时针绘制
+//    CGContextAddArc(context, 160, 160, 100.0, 0.0, 1.5*M_PI, 0);
+//    
+//    //设置属性
+//    [[UIColor blueColor] set];
+//    
+//    //绘制
+//    CGContextDrawPath(context, kCGPathStroke);
+    
+//    // 设置起始点 设置多条线段
+//    CGContextMoveToPoint(context, 20, 50);
+//    CGContextAddLineToPoint(context, 50, 120);
+//    
+//    CGContextSetRGBStrokeColor(context, 1.0, 0, 0, 1);// 设置笔触颜色
+//    
+//    // 绘制图像到指定图形上下文
+//    CGContextDrawPath(context, kCGPathStroke);// 填充类型(有边框，有填充)
     
 //    // 添加对象，绘制椭圆（圆形）的过程也是先创建一个矩形
 //    CGRect myRect=CGRectMake(50, 50, 220.0, 200.0);
@@ -58,7 +123,7 @@
 //    
 //    CGRect myRect2= CGRectMake(20, 150, 280.0, 50.0);
 //    // 设置属性
-//    [[UIColor yellowColor] set];
+//    [[UIColor greenColor] set];
 //    // 直接使用UIRectFill绘制矩形
 //    UIRectFrame(myRect2);// 绘制矩形（填充模式）
 
@@ -89,7 +154,7 @@
 //    CGContextSetShadowWithColor(context, CGSizeMake(2, 2), 0.8, color);
 //
 //    // 绘制图像到指定图形上下文
-//    CGContextDrawPath(context, kCGPathFillStroke);// 填充类型(有边框，有填充)
+//    CGContextDrawPath(context, kCGPathFill);// 填充类型(有边框，有填充)
 }
 
 @end
