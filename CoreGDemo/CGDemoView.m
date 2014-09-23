@@ -43,20 +43,48 @@
     // 获取绘图上下文
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    // 保存初始状态
-    CGContextSaveGState(context);
-    // 形变第一步：图形上下文向右平移80
-    CGContextTranslateCTM(context, 80, 0);
-    // 形变第二步：缩放0.8
-    CGContextScaleCTM(context, 0.8, 0.8);
-    // 形变第三步：旋转
-    CGContextRotateCTM(context, M_PI_4/4);
-    
+    // 拿到图片
     UIImage *image=[UIImage imageNamed:@"1.png"];
-    [image drawInRect:CGRectMake(0, 50, 240, 300)];
     
-    //恢复到初始状态
+    // 保存上下文状态
+    CGContextSaveGState(context);
+    
+    // 设置绘图宽高
+    CGFloat height = 400;
+    CGFloat width = 300;
+    
+    // 在y轴缩放-1相当于沿着x张旋转180 注意！此时x轴不变，y轴因旋转而正向朝上，原点不变仍然在左上角
+    CGContextScaleCTM(context, 1.0, -1.0);
+    // 向下平移一个图片高度
+    CGContextTranslateCTM(context, 0, -height);
+    
+    //图像绘制
+    CGRect myRect= CGRectMake(0, 0, width, height);
+    CGContextDrawImage(context, myRect, image.CGImage);
+    
+    // 恢复上下文状态
     CGContextRestoreGState(context);
+    
+//    CGRect myRect3= CGRectMake(20, 400, 280.0, 80.0);
+//    // 设置属性
+//    [[UIColor greenColor] set];
+//    // 直接使用UIRectFill绘制矩形
+//    UIRectFrame(myRect3);// 绘制矩形（填充模式）
+    
+//    // 保存初始状态
+//    CGContextSaveGState(context);
+//    // 形变第一步：图形上下文向右平移80
+//    CGContextTranslateCTM(context, 80, 0);
+//    // 形变第二步：缩放0.8
+//    CGContextScaleCTM(context, 0.8, 0.8);
+//    // 形变第三步：旋转
+//    CGContextRotateCTM(context, M_PI_4/4);
+//    
+//    UIImage *image=[UIImage imageNamed:@"1.png"];
+//    [image drawInRect:CGRectMake(0, 50, 240, 300)];
+//    
+//    //恢复到初始状态
+//    CGContextRestoreGState(context);
     
     
 //    // 创建RGB颜色空间
