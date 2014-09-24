@@ -18,8 +18,45 @@
     if (self) {
         // Initialization code
         self.backgroundColor = [UIColor whiteColor];
+        
+        UIImage *image=[self drawImageAtImageContext];
+        UIImageView *imageView=[[UIImageView alloc]initWithImage:image];
+        imageView.center = self.center;
+        
+        [self addSubview:imageView];
+        
     }
     return self;
+}
+
+-(UIImage *)drawImageAtImageContext{
+    // 自己创建一个位图图形上下文
+    CGSize size = CGSizeMake(300, 400);
+    UIGraphicsBeginImageContext(size);
+    
+    UIImage *image = [UIImage imageNamed:@"1.png"];
+    [image drawInRect:CGRectMake(0, 0, 300, 400)];//注意绘图的位置是相对于画布顶点而言，不是屏幕
+    
+    // 绘制线段图形
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextMoveToPoint(context, 20, 50);
+    CGContextAddLineToPoint(context, 180, 50);
+    CGContextSetLineWidth(context, 2);
+    [[UIColor redColor] setStroke];
+    
+    CGContextDrawPath(context, kCGPathStroke);
+    
+    // 绘制文字
+    NSString *str = @"pigpigdaddy";
+    [str drawInRect:CGRectMake(20, 20, 180, 60) withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:[UIColor redColor]}];
+    
+    // 获取绘制后的新图形
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    // 关闭对应的上下文
+    UIGraphicsEndImageContext();
+    
+    return newImage;
 }
 
 //void drawColoredTile(void *info,CGContextRef context){
@@ -44,26 +81,26 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     // 拿到图片
-    UIImage *image=[UIImage imageNamed:@"1.png"];
-    
-    // 保存上下文状态
-    CGContextSaveGState(context);
-    
-    // 设置绘图宽高
-    CGFloat height = 400;
-    CGFloat width = 300;
-    
-    // 在y轴缩放-1相当于沿着x张旋转180 注意！此时x轴不变，y轴因旋转而正向朝上，原点不变仍然在左上角
-    CGContextScaleCTM(context, 1.0, -1.0);
-    // 向下平移一个图片高度
-    CGContextTranslateCTM(context, 0, -height);
-    
-    //图像绘制
-    CGRect myRect= CGRectMake(0, 0, width, height);
-    CGContextDrawImage(context, myRect, image.CGImage);
-    
-    // 恢复上下文状态
-    CGContextRestoreGState(context);
+//    UIImage *image=[UIImage imageNamed:@"1.png"];
+//    
+//    // 保存上下文状态
+//    CGContextSaveGState(context);
+//    
+//    // 设置绘图宽高
+//    CGFloat height = 400;
+//    CGFloat width = 300;
+//    
+//    // 在y轴缩放-1相当于沿着x张旋转180 注意！此时x轴不变，y轴因旋转而正向朝上，原点不变仍然在左上角
+//    CGContextScaleCTM(context, 1.0, -1.0);
+//    // 向下平移一个图片高度
+//    CGContextTranslateCTM(context, 0, -height);
+//    
+//    //图像绘制
+//    CGRect myRect= CGRectMake(0, 0, width, height);
+//    CGContextDrawImage(context, myRect, image.CGImage);
+//    
+//    // 恢复上下文状态
+//    CGContextRestoreGState(context);
     
 //    CGRect myRect3= CGRectMake(20, 400, 280.0, 80.0);
 //    // 设置属性
